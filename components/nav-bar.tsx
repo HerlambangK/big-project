@@ -40,8 +40,8 @@ const Navbar = () => {
         </Link>
 
         <div className='hidden items-center gap-4 md:inline-flex'>
-          <Link href="/generate" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/generate' && 'bg-zinc-100')}>About</Link>
-          <Link href="/banksoal" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/banksoal' && 'bg-zinc-100')}>Portofolio</Link>
+          <Link href="/about" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/generate' && 'bg-zinc-100')}>About</Link>
+          <Link href="/portofolio" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/banksoal' && 'bg-zinc-100')}>Portofolio</Link>
           <Link href="/myaccount" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/myaccount' && 'bg-zinc-100')}>Akun Saya</Link>
           {/* <Link href="/generate" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/generate' && 'bg-zinc-100')}>Generate Soal</Link>
           <Link href="/banksoal" className={cn('rounded-lg px-3 py-2 text-sm font-semibold hover:bg-zinc-100', pathName === '/banksoal' && 'bg-zinc-100')}>Bank Soal</Link>

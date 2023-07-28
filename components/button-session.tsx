@@ -18,7 +18,7 @@ const ButtonSession = () => {
                     <DropdownMenuTrigger asChild>
                         <Avatar className='cursor-pointer'>
                             <AvatarImage src={session.user.image || ''} alt="@shadcn" />
-                            <AvatarFallback className='bg-zinc-900 text-white'>{getInitialsFromEmail("fahreziadh@gmail.com")}</AvatarFallback>
+                            <AvatarFallback className='bg-zinc-900 text-white'>{getInitialsFromEmail("Herlambangk25@gmail.com")}</AvatarFallback>
                         </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
