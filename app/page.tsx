@@ -14,10 +14,10 @@ const Page = () => {
       <div className='container'>
         <SectionHeader />
         {/* <SectionVideo /> */}
-        {/* <SectionFeature /> */}
-        {/* <SectionPricing /> */}
-        {/* <SectionPricing /> */}
-        {/* <SectionContact /> */}
+        <SectionFeature />
+        <SectionPricing />
+        <SectionPricing />
+        <SectionContact />
       </div>
     </SessionProvider>
   )
