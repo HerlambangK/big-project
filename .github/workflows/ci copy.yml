@@ -32,15 +32,3 @@ jobs:
 
       - name: "Test"
         run: npm run test
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy ke Vercel
-        uses: amondnet/vercel-action@v20
-        with:
-          args: "deploy --prod"
-        env:
-          VERCEL_TOKEN: ${{ GIrxBf0mdqTiZm9JuUrqXD9t }}
