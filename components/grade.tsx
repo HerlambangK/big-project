@@ -112,7 +112,7 @@ export function Grade({ onChange, value, disabled = false }: Props) {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-full">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onSelect={()=>onChange?.('Umum')}>
+                        <DropdownMenuItem onSelect={() => onChange?.('Umum')}>
                             Umum
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />

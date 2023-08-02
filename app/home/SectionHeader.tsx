@@ -37,21 +37,21 @@ const SectionHeader = () => {
       <motion.div whileHover={{ scale: 1.05 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }} className='relative mt-10'>
         <Button
           onPointerDownCapture={e => e.stopPropagation()}
-          className='relative h-14 bg-emerald-500 text-lg text-white hover:bg-emerald-500'
+          className='relative h-14 bg-blue-500 text-lg text-white hover:bg-blue-500'
           size={"lg"}
           onClick={() => router.push('/generate')}
           type="button">
-          {session?.data?.user ? "Mulai Generate" : "Pesan Sekarang Sekarang!"}
+          {session?.data?.user ? "Mulai Layanan" : "Pesan Sekarang Juga!"}
         </Button>
       </motion.div>
 
       <motion.div variants={secondVariants} transition={{ type: 'tween', ease: 'easeInOut' }} initial="initial" animate="animate" className='mt-5 flex w-full flex-col items-center'>
         {/* <span className='opacity-75'>Powered by : <span className='font-bold'>GPT-4</span></span> */}
-        <div className='mt-9 flex w-5/6 flex-row items-center justify-center gap-10 sm:w-2/6'>
+        {/* <div className='mt-9 flex w-5/6 flex-row items-center justify-center gap-10 sm:w-2/6'>
           <Image src="/openai.png" alt="logo-1" width={100} height={100} quality={100} className="w-1/3 object-contain" />
           <Image src="/vercel.png" alt="logo-1" width={100} height={100} quality={100} className="w-1/3 object-contain" />
           <Image src="/aws.png" alt="logo-1" width={100} height={100} quality={100} className="w-1/3 object-contain" />
-        </div>
+        </div> */}
       </motion.div>
     </div>
   )

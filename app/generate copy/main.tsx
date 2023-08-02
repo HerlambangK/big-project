@@ -38,11 +38,6 @@ const MainPage = ({ session, limit: initialLimit }: Props) => {
     const [total, setTotal] = useState(0)
     const [isInitial, setIsInitial] = useState(true)
     const [limit, setLimit] = useState<{ limit_left: number, is_limit_reached: boolean, limit_max: number, have_subscription: boolean, expired_at: string }>(initialLimit)
-    const [progress, setProgress] = useState(13)
-
-
-
-
 
     const getLimitFromApi = async () => {
         const res = await fetch('/api/payment/limit').finally(() => { setIsLoading(false) })
@@ -155,57 +150,30 @@ const MainPage = ({ session, limit: initialLimit }: Props) => {
         Promise.all([addCount, getLimit])
     }
 
-
     return (
-
-
-        <div className='container mt-10 flex w-full flex-col gap-8 lg:flex-row lg:gap-4' >
-            <div className='flex h-auto w-full flex-col lg:w-11/12'>
+        <div className='container mt-10 flex w-full flex-col gap-8 lg:flex-row lg:gap-4'>
+            <div className='flex h-auto w-full flex-col lg:w-3/12'>
                 <form className="flex w-full flex-col gap-2 rounded-lg">
-                    <h1 className='mb-4 inline-flex w-full items-center justify-between border-b border-zinc-50 text-lg font-bold'><span>Dockument Persiapan Website</span></h1>
-
+                    <h1 className='mb-4 inline-flex w-full items-center justify-between border-b border-zinc-50 text-lg font-bold'><span>Filter Generate</span></h1>
                     {limit.have_subscription ?
                         <div className='mb-4 flex flex-col'>
-                            <Label className='text-sm'>Progress Kamu: </Label>
+                            <Label className='text-sm'>Status Kamu: </Label>
                             <span className='text-sm font-bold'>Aktif {dayjs(limit.expired_at).fromNow()}</span>
                         </div>
                         :
-                        // <div className='mb-4 flex flex-col'>
-                        //     <Label className='text-sm'>Informasi Terisi</Label>
-                        //     {isLoading && <span>Loading....</span>}
-                        //     {limit && <span className='inline-flex items-center gap-2'> <Progress value={((limit?.limit_max - limit?.limit_left) / limit?.limit_max) * 100} />{limit?.limit_max - limit.limit_left}/{limit?.limit_max}</span>}
-                        // </div>
                         <div className='mb-4 flex flex-col'>
-                            <Label className='text-sm'>Progress kelengkapan</Label>
+                            <Label className='text-sm'>Sisa Limit</Label>
                             {isLoading && <span>Loading....</span>}
-                            {limit && <span className='inline-flex items-center gap-2'> <Progress value={((100 - 80) / 100) * 100} />{100 - 80}/{100}</span>}
+                            {limit && <span className='inline-flex items-center gap-2'> <Progress value={((limit?.limit_max - limit?.limit_left) / limit?.limit_max) * 100} />{limit?.limit_max - limit.limit_left}/{limit?.limit_max}</span>}
                         </div>
                     }
-                    <motion.div
-                        className='flex flex-col gap-2 text-sm mb-4 text-zinc-500'>
-                        <p>Dokumen ini akan digunakan untuk membantu Anda dalam mempersiapkan konten yang akan ditampilkan di website Anda. Silahkan Anda menuliskan dokumen ini selengkap-lengkapnya agar website Anda bisa segera diproses oleh Tim Produksi Niagaweb.
-                            Silahkan kirim material Anda bersamaan dengan Dokumen Persiapan Konten Website ini ke email produksi@niagaweb.co.id atau bisa menghubungi nomor layanan Niagaweb yang menghubungi Anda.</p>
-                    </motion.div>
                     <div className='flex flex-col gap-2'>
-                        <Label htmlFor="message-2">Jenis Paket</Label>
+                        <Label htmlFor="message-2">Mata Pelajaran / Subject</Label>
                         <SubjectChoice disabled={isLoading} onChange={(value) => setSubject(value)} value={subject} />
                     </div>
-
                     <motion.div
                         className='flex flex-col gap-2'>
-                        <Label className='mt-4'>Penjelasan Pembuatan Website </Label>
-                        <Textarea onChange={(e) => setTopic(e.target.value)} value={topic} disabled={isLoading} placeholder={`Seperti : ${!subject ? "materi pelajaran, kata kunci, dll." : mataPelajaran.find((v) => v.nama === subject)?.subTopik}`} />
-                        <span className='text-xs text-zinc-500'>Kamu bisa memasukkan lebih dari satu topik.</span>
-                    </motion.div>
-                    <motion.div
-                        className='flex flex-col gap-2'>
-                        <Label className='mt-4'>Penjelasan Pembuatan Website </Label>
-                        <Textarea onChange={(e) => setTopic(e.target.value)} value={topic} disabled={isLoading} placeholder={`Seperti : ${!subject ? "materi pelajaran, kata kunci, dll." : mataPelajaran.find((v) => v.nama === subject)?.subTopik}`} />
-                        <span className='text-xs text-zinc-500'>Kamu bisa memasukkan lebih dari satu topik.</span>
-                    </motion.div>
-                    <motion.div
-                        className='flex flex-col gap-2'>
-                        <Label className='mt-4'>Penjelasan Pembuatan Website </Label>
+                        <Label className='mt-4'>Topik Terkait</Label>
                         <Textarea onChange={(e) => setTopic(e.target.value)} value={topic} disabled={isLoading} placeholder={`Seperti : ${!subject ? "materi pelajaran, kata kunci, dll." : mataPelajaran.find((v) => v.nama === subject)?.subTopik}`} />
                         <span className='text-xs text-zinc-500'>Kamu bisa memasukkan lebih dari satu topik.</span>
                     </motion.div>
@@ -241,7 +209,7 @@ const MainPage = ({ session, limit: initialLimit }: Props) => {
                     </Button>
                 </form>
             </div>
-            <div className='flex min-h-screen w-full flex-col gap-4 border-l border-zinc-100 lg:w-3/12 lg:pl-8'>
+            <div className='flex min-h-screen w-full flex-col gap-4 border-l border-zinc-100 lg:w-9/12 lg:pl-8'>
                 {/* Recommendation */}
                 {isInitial && <div> Generate soal apapun seperti : </div>}
                 {isInitial &&

@@ -77,14 +77,14 @@ const ItemQuestion = ({ question: q, index, subject }: Props) => {
         })}
         {q?.answer && (
           <div className="mt-4">
-            Jawaban : <span className="font-bold text-emerald-500">{q?.answer}</span>
+            Jawaban : <span className="font-bold text-blue-500">{q?.answer}</span>
           </div>
         )}
       </div>
 
       <div className='mt-4 flex flex-row justify-end gap-2'>
-        <Button className='inline-flex items-center justify-center' variant="outline" size="sm" onClick={()=>toast("Fitur sedang dikembangkan")}><FolderPlus className="mr-2 h-4 w-4" />Tambah ke grup</Button>
-        <Button className='inline-flex items-center justify-center' variant="outline" size="sm" disabled={iseLoading || isSaved} onClick={() => !isSaved && handleSave()}>{isSaved ? <><Check className="mr-2 h-4 w-4 text-emerald-500" />Tersimpan</> : <><Save className="mr-2 h-4 w-4" />Simpan</>}</Button>
+        <Button className='inline-flex items-center justify-center' variant="outline" size="sm" onClick={() => toast("Fitur sedang dikembangkan")}><FolderPlus className="mr-2 h-4 w-4" />Tambah ke grup</Button>
+        <Button className='inline-flex items-center justify-center' variant="outline" size="sm" disabled={iseLoading || isSaved} onClick={() => !isSaved && handleSave()}>{isSaved ? <><Check className="mr-2 h-4 w-4 text-blue-500" />Tersimpan</> : <><Save className="mr-2 h-4 w-4" />Simpan</>}</Button>
       </div>
     </motion.div>
   )
