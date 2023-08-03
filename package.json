@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
- "dev": "next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -11,7 +11,6 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
-
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
@@ -75,6 +74,7 @@
   "devDependencies": {
     "autoprefix": "^1.0.1",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
     "lint-staged": "^13.2.3",
     "postcss": "^8.4.26",
     "prettier": "^3.0.0",

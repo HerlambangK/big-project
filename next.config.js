@@ -12,13 +12,12 @@ const nextConfig = {
   },
   experimental: {
     appDir: true,
-    reactServerComponents: true,
-    // fontLoaders: [
-    //   {
-    //     loader: "next/font/google",
-    //     options: { subsets: ["latin"] },
-    //   },
-    // ],
+    fontLoaders: [
+      {
+        loader: "next/font/google",
+        options: { subsets: ["latin"] },
+      },
+    ],
   },
 };
 
