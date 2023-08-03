@@ -3,7 +3,7 @@ name: "Deploy to Vercel"
 on:
   push:
     branches:
-      - main
+      - main # Ganti dengan branch utama Anda, misalnya 'master' jika menggunakan master.
 
 jobs:
   deploy:
@@ -27,8 +27,9 @@ jobs:
         run: npm run build # Ganti dengan perintah build yang sesuai untuk aplikasi Anda.
 
       - name: "Deploy to Vercel"
-        uses: amondnet/vercel-action@v21 # Gunakan versi terbaru dari action Vercel.
+        uses: amondnet/vercel-action@v20 # Gunakan versi terbaru dari action Vercel yang tersedia saat ini.
         with:
           args: "deploy --prod"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Pastikan Anda telah menyimpan secret 'VERCEL_TOKEN' di repositori.
+
