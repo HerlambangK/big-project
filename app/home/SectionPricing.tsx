@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 
-const CardPricingLandingPage = () => {
+export const CardPricingLandingPage = (onClick) => {
   return <div className='flex min-h-[40px] w-full flex-col justify-between rounded-2xl border p-8'>
     <div className='flex w-full flex-row justify-between'>
       <span className='text-xl font-bold'>Landing Page</span>
@@ -22,7 +22,9 @@ const CardPricingLandingPage = () => {
       <span className='inline-flex items-center text-sm'><Check className="mr-2 h-4 w-4 text-blue-500" />Desain Responsif</span>
       <span className='inline-flex items-center text-sm'><Check className="mr-2 h-4 w-4 text-blue-500" />Pengerjaan 7 Hari Kerja</span>
     </div>
-    <Link href={"/generate"} className="w-full"><Button className='mt-8 w-full bg-blue-500 font-bold hover:bg-blue-600' size="sm">Pesan Website</Button></Link>
+    {/* <Link href={"/generate"} className="w-full"><Button className='mt-8 w-full bg-blue-500 font-bold hover:bg-blue-600' size="sm">Pesan Website</Button></Link> */}
+    <Button className='mt-8 bg-blue-500 font-bold hover:bg-blue-600' onClick={onClick} size="sm">Pesan Website</Button>
+
   </div>
 }
 
