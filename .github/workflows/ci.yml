@@ -1,35 +1,21 @@
-name: "Deploy to Vercel"
-
+name: Vercel Preview Deployment
+# env:
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
-    branches:
-      - main # Ganti dengan branch utama Anda, misalnya 'master' jika menggunakan master.
-
+    branches-ignore:
+      - main
 jobs:
-  deploy:
-    name: "Build and Deploy"
+  Deploy-Preview:
     runs-on: ubuntu-latest
-
     steps:
-      - name: "Checkout repository"
-        uses: actions/checkout@v2
-
-      - name: "Set up Node.js"
-        uses: actions/setup-node@v2
-        with:
-          node-version: "lts/*"
-          cache: "npm"
-
-      - name: "Install dependencies"
-        run: npm install # Atau gunakan 'yarn install' jika Anda menggunakan Yarn.
-
-      - name: "Build Next.js app"
-        run: npm run build # Ganti dengan perintah build yang sesuai untuk aplikasi Anda.
-
-      - name: "Deploy to Vercel"
-        uses: amondnet/vercel-action@v20 # Gunakan versi terbaru dari action Vercel yang tersedia saat ini.
-        with:
-          args: "deploy --prod"
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Pastikan Anda telah menyimpan secret 'VERCEL_TOKEN' di repositori.
-
+      - uses: actions/checkout@v2
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
