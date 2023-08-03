@@ -1,6 +1,6 @@
 "use client"
 import SectionContact from '@/app/home/SectionContact'
-import { CardPricingBulanan, CardPricingMingguan } from '@/app/home/SectionPricing'
+import { CardPricingCompanyProfile, CardPricingOnlineShop, CardPricingLandingPage } from '@/app/home/SectionPricing'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -54,8 +54,9 @@ const Page = () => {
         <SectionContact />
         <h2 className='mt-4 text-lg'>Tenang... kamu bisa melanjutkan dengan langganan berikut : </h2>
         <div className='mt-8 grid w-full grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-6'>
-          <CardPricingBulanan onClick={() => handleOnClick('monthly')} />
-          <CardPricingMingguan onClick={() => handleOnClick("weekly")} />
+          <CardPricingCompanyProfile onClick={() => handleOnClick("companyprofile")} />
+          <CardPricingOnlineShop onClick={() => handleOnClick("onlineshop")} />
+          <CardPricingLandingPage onClick={() => handleOnClick("landingpage")} />
         </div>
       </div>
     </div>
